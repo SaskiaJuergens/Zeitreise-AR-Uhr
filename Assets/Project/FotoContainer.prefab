@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613f61efbdf10a541b34a249e72ab30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PortraitPrefab: {fileID: 3872205548907760474, guid: 6ad154ea1e66b04479faddfdfecabb77, type: 3}
+  PortraitPrefab: {fileID: 3872205548907760474, guid: 7718e19c0d95b214197799a14edd3d95,
+    type: 3}
   FotoContainer: {fileID: 0}
   plusButton: {fileID: 0}
   minusButton: {fileID: 0}

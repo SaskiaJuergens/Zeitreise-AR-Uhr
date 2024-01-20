@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "721705629630",
+    "project_id": "zeituhr-40996",
+    "storage_bucket": "zeituhr-40996.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721705629630:android:a3aa6d08c3965c91bd6bef",
+        "android_client_info": {
+          "package_name": "com.Kiyomi.Zeitreise_App"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtlnAf-7PwTm1u7D53NnggdMMlQV3fwpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

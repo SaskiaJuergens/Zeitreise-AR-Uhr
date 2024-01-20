@@ -11,6 +11,7 @@ public class FotoContainerController : MonoBehaviour
     public Button plusButton;
     public Button minusButton;
 
+    int mm;
     private int currentIndex = 0;
     private List<GameObject> personSprites = new List<GameObject>();
 
@@ -21,6 +22,9 @@ public class FotoContainerController : MonoBehaviour
         Debug.Log(portraitInstance.transform.childCount);
 
         //personSprites = new GameObject[25];
+        Bluetooth bluetoothInstance = new Bluetooth();
+
+        mm = bluetoothInstance.getMinutes();
 
         if (portraitInstance.transform.childCount > 0)
         {
@@ -47,6 +51,7 @@ public class FotoContainerController : MonoBehaviour
 
         // Zeige das erste Portrait an
         ZeigeAktuellesFoto();
+        setImages();
 
 
         // Register button click events
@@ -56,6 +61,28 @@ public class FotoContainerController : MonoBehaviour
         Debug.Log(plusButton.onClick);
         plusButton.onClick.AddListener(OnPlusButtonClicked);
         minusButton.onClick.AddListener(OnMinusButtonClicked);
+    }
+
+    public void setImages()
+    {
+        //if(mm >= 0 && mm < 2.4)
+        //{
+        //    currentIndex = 0;
+        //} 
+        //else if (mm >= 2.4 && mm < 4.8)
+
+        for (int i = 0; i < 25; i++)
+        {
+            float j = (float)i;
+            float jj = j * 2.4f;
+
+           if (mm >= j && mm < j + 2.4f)
+           {
+              currentIndex = i;
+           }
+        }
+
+        ZeigeAktuellesFoto();
     }
 
     // Plus-Button-Methode
