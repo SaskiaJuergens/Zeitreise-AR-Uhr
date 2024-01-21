@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2667772, y: 0.2667772, z: 0.2667772}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5797613389568455947}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334697981901570247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b540fbfe9d99faa4ca5ae7e73e51030d, type: 3}
   m_Name: 
@@ -58,8 +58,8 @@ VideoPlayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334697981901570247}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 4ed42126297623040a553f439ef0af50, type: 3}
+  m_Enabled: 0
+  m_VideoClip: {fileID: 32900000, guid: fc4c8ddb336b60d46b3aaf00c00bc905, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -118,8 +118,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1362801, y: 0.6, z: 0.6}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 0.46666667, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7924170372928805592}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -151,7 +151,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9d10b0c9430fb3c4abb49308da75de85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b540fbfe9d99faa4ca5ae7e73e51030d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPrefab: {fileID: 1254370451499935894, guid: 4474a888fab5fef44bcad703abe9ad73,
+  videoPrefab: {fileID: 1254370451499935894, guid: d9b211f2ee27c6941b7cb181575d95d8,
     type: 3}
   videoContainer: {fileID: 8025955068899775409, guid: 4474a888fab5fef44bcad703abe9ad73,
     type: 3}
@@ -221,7 +221,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6214219446458775049}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c0a0ca7940ba1f447baef1b87ff04220, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 1db6e6f20d8dcb04596b4af00462cdcf, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}

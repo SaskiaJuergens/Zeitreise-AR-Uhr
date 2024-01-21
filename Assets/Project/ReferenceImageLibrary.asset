@@ -33,17 +33,17 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 11413304329270750567
       m_GuidHigh: 2972503795837227352
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 0.185, y: 0.23125}
+    m_SpecifySize: 1
     m_Name: Portrait
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5056281183360098536
       m_GuidHigh: 10376385936613138062
     m_SerializedTextureGuid:
-      m_GuidLow: 7117067975472167227
-      m_GuidHigh: 4777325201360114617
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+      m_GuidLow: 4590485351513496262
+      m_GuidHigh: 11206082297118042617
+    m_Size: {x: 0.3, y: 0.13748936}
+    m_SpecifySize: 1
     m_Name: Mario
     m_Texture: {fileID: 0}

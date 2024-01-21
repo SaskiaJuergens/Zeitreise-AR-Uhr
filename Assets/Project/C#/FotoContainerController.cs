@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class FotoContainerController : MonoBehaviour
 {
     public GameObject PortraitPrefab; // Das Portrait-Prefab
+    public GameObject BackgroundPrefab;
     public Transform FotoContainer; // Hier könntest du einen leeren GameObject-Container für die Fotos verwenden
     public Button plusButton;
     public Button minusButton;
@@ -14,11 +15,13 @@ public class FotoContainerController : MonoBehaviour
     int mm;
     private int currentIndex = 0;
     private List<GameObject> personSprites = new List<GameObject>();
+    private List<GameObject> backgroundSprites = new List<GameObject>();
 
     void Start()
     {
         // Initialisiere die Telefone
         GameObject portraitInstance = Instantiate(PortraitPrefab.gameObject, transform);
+        GameObject backgroundInstance = Instantiate(BackgroundPrefab.gameObject, transform);
         Debug.Log(portraitInstance.transform.childCount);
 
         //personSprites = new GameObject[25];
@@ -33,6 +36,8 @@ public class FotoContainerController : MonoBehaviour
                 Debug.Log("inizalisiere Foto" + i);
                 personSprites.Add(portraitInstance.transform.GetChild(i).gameObject);
                 personSprites[i].SetActive(false);
+                //backgroundSprites.Add(backgroundInstance.transform.GetChild(1).gameObject);
+                //backgroundSprites[1].SetActive(false);
                 //personSprites.Add(portraitInstance);
             }
         } else
@@ -109,5 +114,6 @@ public class FotoContainerController : MonoBehaviour
 
         // Aktiviere das aktuelle Portrait
         personSprites[currentIndex].SetActive(true);
+        backgroundSprites[1].SetActive(true);
     }
 }
