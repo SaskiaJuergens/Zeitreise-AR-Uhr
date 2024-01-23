@@ -12,22 +12,19 @@ public class FotoContainerController : MonoBehaviour
     public Button plusButton;
     public Button minusButton;
 
-    int mm;
+    //int mm;
     private int currentIndex = 0;
     private List<GameObject> personSprites = new List<GameObject>();
-    private List<GameObject> backgroundSprites = new List<GameObject>();
+    private GameObject backgroundSprite;
 
     void Start()
     {
         // Initialisiere die Telefone
         GameObject portraitInstance = Instantiate(PortraitPrefab.gameObject, transform);
-        GameObject backgroundInstance = Instantiate(BackgroundPrefab.gameObject, transform);
+        backgroundSprite = Instantiate(BackgroundPrefab.gameObject, transform);
+
+
         Debug.Log(portraitInstance.transform.childCount);
-
-        //personSprites = new GameObject[25];
-        Bluetooth bluetoothInstance = new Bluetooth();
-
-        mm = bluetoothInstance.getMinutes();
 
         if (portraitInstance.transform.childCount > 0)
         {
@@ -54,9 +51,11 @@ public class FotoContainerController : MonoBehaviour
         //    personSprites.Add(portraitInstance);
         //}
 
+        Firestore.Instance.FotoRef = this;
+
         // Zeige das erste Portrait an
         ZeigeAktuellesFoto();
-        setImages();
+        //setImages(0);
 
 
         // Register button click events
@@ -68,24 +67,26 @@ public class FotoContainerController : MonoBehaviour
         minusButton.onClick.AddListener(OnMinusButtonClicked);
     }
 
-    public void setImages()
+    public void setImages(int mm)
     {
+        currentIndex = (mm >= 0 && mm < 60) ? (int)(mm / 2.4f) : currentIndex;
+
         //if(mm >= 0 && mm < 2.4)
         //{
         //    currentIndex = 0;
         //} 
         //else if (mm >= 2.4 && mm < 4.8)
 
-        for (int i = 0; i < 25; i++)
-        {
-            float j = (float)i;
-            float jj = j * 2.4f;
+        //for (int i = 0; i < 25; i++)
+        //{
+        //    float j = (float)i;
+        //    float jj = j * 2.4f;
 
-           if (mm >= j && mm < j + 2.4f)
-           {
-              currentIndex = i;
-           }
-        }
+        //   if (mm >= j && mm < j + 2.4f)
+        //   {
+        //      currentIndex = i;
+        //   }
+        //}
 
         ZeigeAktuellesFoto();
     }
@@ -114,6 +115,6 @@ public class FotoContainerController : MonoBehaviour
 
         // Aktiviere das aktuelle Portrait
         personSprites[currentIndex].SetActive(true);
-        backgroundSprites[1].SetActive(true);
+        backgroundSprite.SetActive(true);
     }
 }

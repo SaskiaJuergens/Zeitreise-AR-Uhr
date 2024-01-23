@@ -30,9 +30,11 @@ public class TelefonWechselScript : MonoBehaviour
             telefone[i].SetActive(false);
         }
 
+        Firestore.Instance.TelRef = this;
+
         // Zeige das erste Telefon an
         ZeigeAktuellesTelefon();
-
+        //setTelefon(0);
 
 
         // Setze die Button-Handler
@@ -45,6 +47,49 @@ public class TelefonWechselScript : MonoBehaviour
         plusButton.onClick.AddListener(WechsleTelefonPlus);
         minusButton.onClick.AddListener(WechsleTelefonMinus);
 
+    }
+
+    public void setTelefon(int mm)
+    {
+        aktuellesTelefonIndex = (mm >= 0 && mm < 60) ? mm / 10 : aktuellesTelefonIndex;
+
+        //if (mm >= 0 && mm < 10)
+        //{
+        //    aktuellesTelefonIndex = 0;
+        //}
+        //if (mm >= 10 && mm < 20)
+        //{
+        //    aktuellesTelefonIndex = 1;
+        //}
+        //if (mm >= 20 && mm < 30)
+        //{
+        //    aktuellesTelefonIndex = 2;
+        //}
+        //if (mm >= 30 && mm < 40)
+        //{
+        //    aktuellesTelefonIndex = 3;
+        //}
+        //if (mm >= 40 && mm < 50)
+        //{
+        //    aktuellesTelefonIndex = 4;
+        //}
+        //if (mm >= 50 && mm < 60)
+        //{
+        //    aktuellesTelefonIndex = 5;
+        //}
+
+        //for (int i = 0; i < 6; i++)
+        //{
+        //    float j = (float)i;
+        //    float jj = j * 10;
+
+        //    if (mm >= j && mm < j + 10)
+        //    {
+        //        aktuellesTelefonIndex = i;
+        //    }
+        //}
+
+        ZeigeAktuellesTelefon();
     }
 
     void WechsleTelefonPlus()

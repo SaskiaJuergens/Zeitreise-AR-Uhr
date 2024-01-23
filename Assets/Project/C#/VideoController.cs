@@ -14,8 +14,11 @@ public class VideoController : MonoBehaviour
     private GameObject[] videos;
     private VideoPlayer videoPlayer;
 
+    public VideoClip[] videoClips;
+
     void Start()
     {
+        videoPlayer = GetComponent<VideoPlayer>();
         // Initialisiere die Videos
         GameObject videoObject = Instantiate(videoPrefab.gameObject, videoContainer);
         VideoPlayer vp = videoObject.GetComponent<VideoPlayer>();
@@ -27,24 +30,27 @@ public class VideoController : MonoBehaviour
             videoObject.SetActive(false);
 
             string videoName = "Video" + (i + 1);
-            VideoClip videoClip = Resources.Load<VideoClip>("Mario/" + videoName);
+            //VideoClip videoClip = Resources.Load<VideoClip>("Mario/" + videoName);
 
-            if (videoClip == null)
+            if (videoClips == null)
             {
                 Debug.LogError("VideoClip " + (i + 1) + " konnte nicht geladen werden! Name: " + videoName);
             }
             else
             {
-                vp.clip = videoClip;
+                videoPlayer.clip = videoClips[i];
                 Debug.Log("VideoClip " + (i + 1) + " erfolgreich geladen! Name: " + videoName);
             }
         }
 
         // Hole den VideoPlayer des ersten Videos
-        videoPlayer = videos[currentVideoIndex].GetComponent<VideoPlayer>();
+        //videoPlayer = videos[currentVideoIndex].GetComponent<VideoPlayer>();
+
+        Firestore.Instance.VideoRef = this;
 
         // Spiele das erste Video ab
         PlayCurrentVideo();
+        //setVideo(0);
 
         // Setze die Button-Handler
         plusButton = GameObject.FindGameObjectWithTag("plusButton").GetComponent<Button>();
@@ -54,6 +60,24 @@ public class VideoController : MonoBehaviour
         minusButton.onClick.AddListener(PlayPreviousVideo);
     }
 
+    public void setVideo(int mm)
+    {
+        currentVideoIndex = (mm >= 0 && mm < 60) ? (int)(mm / 2.86f) : currentVideoIndex;
+
+
+        //for (int i = 0; i < 21; i++)
+        //{
+        //    float j = (float)i;
+        //    float jj = j * 2.86f;
+
+        //    if (mm >= j && mm < j + 2.86f)
+        //    {
+        //        currentVideoIndex = i;
+        //    }
+        //}
+
+        PlayCurrentVideo();
+    }
     void PlayNextVideo()
     {
         currentVideoIndex = (currentVideoIndex + 1) % videos.Length;
@@ -76,6 +100,7 @@ public class VideoController : MonoBehaviour
 
         // Aktiviere das aktuelle Video
         videos[currentVideoIndex].SetActive(true);
+        videoPlayer.clip = videoClips[currentVideoIndex];
 
         // Starte das Video ab dem Anfang
         videoPlayer.Stop();

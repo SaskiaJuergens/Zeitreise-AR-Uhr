@@ -1,76 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Firebase.Firestore;
-using Firebase.Extensions;
-using static UnityEngine.XR.ARSubsystems.XRCpuImage;
 using Firebase;
-using System;
+using Firebase.Database;
+using Firebase.Extensions;
+using System; //.TaskExtension; // for ContinueWithOnMainThread
 
 public class Firestore : MonoBehaviour
 {
-    FirebaseFirestore db;
-    FirebaseApp app;
+    // Get the root reference location of the database.
+    DatabaseReference reference;
+    public FotoContainerController FotoRef;
+    public TelefonWechselScript TelRef;
+    public VideoController VideoRef;
+    public static Firestore Instance;
 
     private void Awake()
     {
-        db = FirebaseFirestore.DefaultInstance;
+        Instance = this;
     }
-
     private void Start()
     {
 
-        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
-            var dependencyStatus = task.Result;
-            if (dependencyStatus == Firebase.DependencyStatus.Available)
-            {
-                // Create and hold a reference to your FirebaseApp,
-                // where app is a Firebase.FirebaseApp property of your application class.
-                app = Firebase.FirebaseApp.DefaultInstance;
-
-                // Set a flag here to indicate whether Firebase is ready to use by your app.
-            }
-            else
-            {
-                UnityEngine.Debug.LogError(System.String.Format(
-                  "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
-                // Firebase Unity SDK is not safe to use here.
-            }
-        });
-
-        SetData();
-        GetData();
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+        //GetData();
+        SubscribeToDatabseElement();
     }
 
-    public void SetData()
+public void SubscribeToDatabseElement()
     {
-        Debug.Log("SetData start");
-        DocumentReference docRef = db.Collection("Zeituhr").Document("Variablen");
-
-
-        Dictionary<string, object> Variablen = new Dictionary<string, object>
-        {
-                { "Hour", 7 },
-                { "Button", false }
-        };
-        docRef.SetAsync(Variablen).ContinueWithOnMainThread(task =>
-        {
-            Debug.Log("Added data to the LA document in the cities collection.");
-        });
-
+        FirebaseDatabase.DefaultInstance.GetReference("test").ValueChanged += HandleValueChanged;
     }
 
-    public void GetData()
+    void HandleValueChanged(object sender, ValueChangedEventArgs args)
     {
-        DocumentReference docRef = db.Collection("Zeituhr").Document("Variablen");
-        docRef.Listen(snapshot => {
-            Debug.Log("Callback received document snapshot.");
-            Debug.Log(String.Format("Document data for {0} document:", snapshot.Id));
-            Dictionary<string, object> Variablen = snapshot.ToDictionary();
-            foreach (KeyValuePair<string, object> pair in Variablen)
+        if (args.DatabaseError != null)
+        {
+            Debug.LogError(args.DatabaseError.Message);
+            return;
+        }
+
+        Debug.Log("Snapshot:");
+        foreach (var item in args.Snapshot.Children)
+        {
+            Debug.Log(item);
+            Debug.Log(item.Value);
+            if(FotoRef != null)
             {
-                Debug.Log(String.Format("{0}: {1}", pair.Key, pair.Value));
+
+            FotoRef.setImages(Convert.ToInt32(item.Value));
             }
-        });
+            if (TelRef != null)
+            {
+
+                TelRef.setTelefon(Convert.ToInt32(item.Value));
+            }
+            if (VideoRef != null)
+            {
+
+                VideoRef.setVideo(Convert.ToInt32(item.Value));
+            }
+
+
+        }
     }
 }

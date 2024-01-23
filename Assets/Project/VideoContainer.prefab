@@ -51,6 +51,7 @@ MonoBehaviour:
   videoContainer: {fileID: 0}
   plusButton: {fileID: 0}
   minusButton: {fileID: 0}
+  videoClips: []
 --- !u!328 &-4823983273985541396
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -213,6 +214,28 @@ MonoBehaviour:
     type: 3}
   plusButton: {fileID: 0}
   minusButton: {fileID: 0}
+  videoClips:
+  - {fileID: 32900000, guid: c0a0ca7940ba1f447baef1b87ff04220, type: 3}
+  - {fileID: 32900000, guid: 6685dc2c15990f449bdeaccf68628a0c, type: 3}
+  - {fileID: 32900000, guid: f7471ddf1225fe4438fcc9dc606f2023, type: 3}
+  - {fileID: 32900000, guid: 2a3f8207e89815043b4b15409a9ce935, type: 3}
+  - {fileID: 32900000, guid: fc4c8ddb336b60d46b3aaf00c00bc905, type: 3}
+  - {fileID: 32900000, guid: 601d2e045a78a53478b4fd6f4cefa38c, type: 3}
+  - {fileID: 32900000, guid: 38206b59d1dff644181d4cf037cc867f, type: 3}
+  - {fileID: 32900000, guid: eca266c901f5ae545aa019be5f8b9a79, type: 3}
+  - {fileID: 32900000, guid: 9726b7720729d424eacaacfe1d878957, type: 3}
+  - {fileID: 32900000, guid: 6cf019e5ad9011649b18c8d4ccd086d9, type: 3}
+  - {fileID: 32900000, guid: 4ed42126297623040a553f439ef0af50, type: 3}
+  - {fileID: 32900000, guid: 150bf57e08920c547a78ccd115f764ed, type: 3}
+  - {fileID: 32900000, guid: f9b21f3edc33f4e4b8bc7575f61686a2, type: 3}
+  - {fileID: 32900000, guid: e96f69b5214746846a8b28d6706f8aa5, type: 3}
+  - {fileID: 32900000, guid: 66ca2172fecbcfe4985cce3dd39a20a0, type: 3}
+  - {fileID: 32900000, guid: ec2d5a1032ff6f1488131fd333fe2cec, type: 3}
+  - {fileID: 32900000, guid: 24f3c8d14a6234e4e8f98c8bbbf7aacf, type: 3}
+  - {fileID: 32900000, guid: ffa0e65caea85954896e74a09749bfe9, type: 3}
+  - {fileID: 32900000, guid: b98ee76aa75b1e148b379512c48d936b, type: 3}
+  - {fileID: 32900000, guid: 48c78780651acdb40a1eeb67832cfd16, type: 3}
+  - {fileID: 32900000, guid: 1db6e6f20d8dcb04596b4af00462cdcf, type: 3}
 --- !u!328 &8110280572971916998
 VideoPlayer:
   m_ObjectHideFlags: 0
