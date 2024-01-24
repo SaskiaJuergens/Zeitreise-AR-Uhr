@@ -5,13 +5,13 @@ using UnityEngine.Video;
 
 public class VideoController : MonoBehaviour
 {
-    public GameObject videoPrefab;  // Das Video-Prefab
+    //public GameObject videoPrefab;  // Das Video-Prefab
     public Transform videoContainer; // Hier könntest du einen leeren GameObject-Container für die Videos verwenden
     public Button plusButton;
     public Button minusButton;
 
     private int currentVideoIndex = 0;
-    private GameObject[] videos;
+    //private GameObject[] videos;
     private VideoPlayer videoPlayer;
 
     public VideoClip[] videoClips;
@@ -20,31 +20,35 @@ public class VideoController : MonoBehaviour
     {
         videoPlayer = GetComponent<VideoPlayer>();
         // Initialisiere die Videos
-        GameObject videoObject = Instantiate(videoPrefab.gameObject, videoContainer);
-        VideoPlayer vp = videoObject.GetComponent<VideoPlayer>();
+        //GameObject videoObject = Instantiate(videoPrefab.gameObject, videoContainer);
 
-        videos = new GameObject[20];
-        for (int i = 0; i < 20; i++)
+        //videos = new GameObject[20];
+        //for (int i = 0; i < 20; i++)
+        //{
+        //    //videos[i] = videoObject;
+        //    //videoObject.SetActive(false);
+
+        //    string videoName = "Video" + (i + 1);
+        //    string videoPath = "Assets/Project/Mario/" + videoName + ".mp4";
+        //    videoClips[i] = Resources.Load<VideoClip>(videoPath);
+        //    //videoClips[i] = Resources.Load<VideoClip>("Mario/" + videoName);
+
+        //    if (videoClips == null)
+        //    {
+        //        Debug.LogError("VideoClip " + (i + 1) + " konnte nicht geladen werden! Name: " + videoName);
+        //    }
+        //    else
+        //    {
+        //        videoPlayer.clip = videoClips[i];
+        //        Debug.Log("VideoClip " + (i + 1) + " erfolgreich geladen! Name: " + videoName);
+        //    }
+        //}
+
+        if (videoClips == null || videoClips.Length == 0)
         {
-            videos[i] = videoObject;
-            videoObject.SetActive(false);
-
-            string videoName = "Video" + (i + 1);
-            //VideoClip videoClip = Resources.Load<VideoClip>("Mario/" + videoName);
-
-            if (videoClips == null)
-            {
-                Debug.LogError("VideoClip " + (i + 1) + " konnte nicht geladen werden! Name: " + videoName);
-            }
-            else
-            {
-                videoPlayer.clip = videoClips[i];
-                Debug.Log("VideoClip " + (i + 1) + " erfolgreich geladen! Name: " + videoName);
-            }
+            Debug.LogError("Keine VideoClips zugewiesen oder Liste ist leer.");
+            return;
         }
-
-        // Hole den VideoPlayer des ersten Videos
-        //videoPlayer = videos[currentVideoIndex].GetComponent<VideoPlayer>();
 
         Firestore.Instance.VideoRef = this;
 
@@ -80,26 +84,21 @@ public class VideoController : MonoBehaviour
     }
     void PlayNextVideo()
     {
-        currentVideoIndex = (currentVideoIndex + 1) % videos.Length;
+        currentVideoIndex = (currentVideoIndex + 1) % videoClips.Length;
         PlayCurrentVideo();
     }
 
     void PlayPreviousVideo()
     {
-        currentVideoIndex = (currentVideoIndex - 1 + videos.Length) % videos.Length;
+        currentVideoIndex = (currentVideoIndex - 1 + videoClips.Length) % videoClips.Length;
         PlayCurrentVideo();
     }
 
     void PlayCurrentVideo()
     {
-        // Deaktiviere alle Videos
-        foreach (var video in videos)
-        {
-            video.SetActive(false);
-        }
 
-        // Aktiviere das aktuelle Video
-        videos[currentVideoIndex].SetActive(true);
+        //// Aktiviere das aktuelle Video
+        //videos[currentVideoIndex].SetActive(true);
         videoPlayer.clip = videoClips[currentVideoIndex];
 
         // Starte das Video ab dem Anfang

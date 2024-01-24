@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 17267988469093665544
       m_GuidHigh: 16391176943886915434
-    m_Size: {x: 0.185, y: 0.14586654}
+    m_Size: {x: 0.17, y: 0.13403952}
     m_SpecifySize: 1
     m_Name: Telefon
     m_Texture: {fileID: 0}
@@ -33,7 +33,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 11413304329270750567
       m_GuidHigh: 2972503795837227352
-    m_Size: {x: 0.185, y: 0.23125}
+    m_Size: {x: 0.176, y: 0.22}
     m_SpecifySize: 1
     m_Name: Portrait
     m_Texture: {fileID: 0}
