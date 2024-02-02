@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b540fbfe9d99faa4ca5ae7e73e51030d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPrefab: {fileID: 0}
   videoContainer: {fileID: 0}
   plusButton: {fileID: 0}
   minusButton: {fileID: 0}
@@ -207,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b540fbfe9d99faa4ca5ae7e73e51030d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPrefab: {fileID: 0}
   videoContainer: {fileID: 8025955068899775409, guid: 4474a888fab5fef44bcad703abe9ad73,
     type: 3}
   plusButton: {fileID: 0}
