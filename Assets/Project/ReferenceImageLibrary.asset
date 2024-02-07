@@ -47,3 +47,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: Mario
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5547752897053441770
+      m_GuidHigh: 2799492667990711689
+    m_SerializedTextureGuid:
+      m_GuidLow: 10683875018731515155
+      m_GuidHigh: 54760748462940650
+    m_Size: {x: 0.21, y: 0.13388862}
+    m_SpecifySize: 1
+    m_Name: Butterfly
+    m_Texture: {fileID: 0}

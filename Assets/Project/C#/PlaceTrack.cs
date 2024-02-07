@@ -11,6 +11,7 @@ public class PlaceTrack : MonoBehaviour
     public GameObject TelefonContainer; // TelefonContainer deklarieren
     public GameObject FotoContainer;    // FotoContainer deklarieren
     public GameObject VideoContainer;
+    public GameObject Butterfly_Container;
 
     // Reference to AR tracked image manager component
     private ARTrackedImageManager _trackedImagesManager;
@@ -69,6 +70,11 @@ public class PlaceTrack : MonoBehaviour
             {
                 Debug.Log("Foto tracked");
                 prefabToInstantiate = FotoContainer;
+            }
+            else if (string.Equals(imageName, "Butterfly", StringComparison.OrdinalIgnoreCase))
+            {
+                Debug.Log("Foto tracked");
+                prefabToInstantiate = Butterfly_Container;
             }
             else
             {

@@ -51,7 +51,7 @@ public class TelefonWechselScript : MonoBehaviour
 
     public void setTelefon(int mm)
     {
-        aktuellesTelefonIndex = (mm >= 0 && mm < 60) ? mm / 10 : aktuellesTelefonIndex;
+        aktuellesTelefonIndex = (mm >= 0 && mm < 60) ? mm / 5 : aktuellesTelefonIndex;
 
         //if (mm >= 0 && mm < 10)
         //{

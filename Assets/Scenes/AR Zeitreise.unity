@@ -362,6 +362,8 @@ MonoBehaviour:
     type: 3}
   VideoContainer: {fileID: 334697981901570247, guid: 01f68a7329008004d96200118e7c4c78,
     type: 3}
+  Butterfly_Container: {fileID: 334697981901570247, guid: affdad48f9bdcb94e967338163215d55,
+    type: 3}
 --- !u!114 &331264289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,6 +953,7 @@ MonoBehaviour:
   FotoRef: {fileID: 0}
   TelRef: {fileID: 0}
   VideoRef: {fileID: 0}
+  ButterflyRef: {fileID: 0}
 --- !u!4 &1903753593
 Transform:
   m_ObjectHideFlags: 0
