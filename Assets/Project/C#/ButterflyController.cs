@@ -5,7 +5,7 @@ using UnityEngine.Video;
 
 public class ButterflyController : MonoBehaviour
 {
-    public Transform videoContainer;
+    public VideoClip videoClip; // Referenz auf das Videoclip
     public Button plusButton;
     public Button minusButton;
 
@@ -15,7 +15,11 @@ public class ButterflyController : MonoBehaviour
 
     void Start()
     {
-        videoPlayer = GetComponent<VideoPlayer>();
+        videoPlayer = gameObject.AddComponent<VideoPlayer>(); // VideoPlayer-Komponente hinzufügen
+        videoPlayer.playOnAwake = false; // Das Video nicht automatisch abspielen
+        videoPlayer.clip = videoClip; // Das Videoclip zuweisen
+        videoLengthInSeconds = (float)videoClip.length; // Die Länge des Videos in Sekunden erhalten
+        videoPlayer.time = videoLengthInSeconds;
 
         if (videoPlayer == null)
         {
@@ -24,35 +28,46 @@ public class ButterflyController : MonoBehaviour
         }
 
         // Setze die Button-Handler
-        plusButton.onClick.AddListener(PlayNextVideo);
-        minusButton.onClick.AddListener(PlayPreviousVideo);
+        plusButton = GameObject.FindGameObjectWithTag("plusButton").GetComponent<Button>();
+        minusButton = GameObject.FindGameObjectWithTag("minusButton").GetComponent<Button>();
+        // Setze die Button-Handler
+        plusButton.onClick.AddListener(PlayNextFrame);
+        minusButton.onClick.AddListener(PlayPreviousFrame);
 
-        videoPlayer.Play();
+        // Setze die Zeit des Videos auf den vierten Frame
+        videoPlayer.frame = 4;
+        //SetVideoTime(1f);
+        videoPlayer.Pause(); 
 
     }
 
     public void setVideo(float seconds)
     {
-        currentSecond = Mathf.Clamp(seconds, 0f, videoLengthInSeconds); // Wir möchten sicherstellen, dass die Sekunde im Bereich von 0 bis zur Länge des Videos liegt
-        SetVideoTime(currentSecond);
+        currentSecond = seconds;
+        if(currentSecond > seconds)
+        {
+            PlayPreviousFrame();
+        }
+
+        if (currentSecond < seconds)
+        {
+            PlayNextFrame();
+        }
     }
 
-    void PlayNextVideo()
+    void PlayNextFrame()
     {
-        currentSecond = Mathf.Min(currentSecond + 1f, videoLengthInSeconds);
-        SetVideoTime(currentSecond);
+        if (videoPlayer.frame < (long)(videoPlayer.frameCount - 1)) // Überprüfen, ob es noch Frames gibt
+        {
+            videoPlayer.frame = videoPlayer.frame + 10; // Nächsten Frame anzeigen
+        }
     }
 
-    void PlayPreviousVideo()
+    void PlayPreviousFrame()
     {
-        currentSecond = Mathf.Max(currentSecond - 1f, 0f); // Wir möchten sicherstellen, dass die Sekunde nicht unter 0 fällt
-        SetVideoTime(currentSecond);
-    }
-
-    void SetVideoTime(float second)
-    {
-        float normalizedTime = second / videoLengthInSeconds;
-        videoPlayer.time = normalizedTime * videoLengthInSeconds;
-        videoPlayer.Play();
+        if (videoPlayer.frame > 0) // Überprüfen, ob es vorherige Frames gibt
+        {
+            videoPlayer.frame= videoPlayer.frame-10; // Vorherigen Frame anzeigen
+        }
     }
 }

@@ -57,3 +57,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: Butterfly
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4837279893447481026
+      m_GuidHigh: 3717286290048387457
+    m_SerializedTextureGuid:
+      m_GuidLow: 9013030192624743543
+      m_GuidHigh: 9104894049225905896
+    m_Size: {x: 0.176, y: 0.22}
+    m_SpecifySize: 1
+    m_Name: 1
+    m_Texture: {fileID: 0}

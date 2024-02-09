@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 1907888476012694669}
   - component: {fileID: 1825710844460874395}
   - component: {fileID: 4749525459358724265}
-  - component: {fileID: 4046354708429955428}
   - component: {fileID: 8110280572971916998}
   - component: {fileID: 7610440456242240159}
   m_Layer: 0
@@ -64,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.52619046, z: 0.85}
+  m_LocalScale: {x: 1, y: 0.61904764, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7924170372928805592}
@@ -141,44 +140,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4046354708429955428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6214219446458775049}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b540fbfe9d99faa4ca5ae7e73e51030d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  videoContainer: {fileID: 8025955068899775409, guid: 4474a888fab5fef44bcad703abe9ad73,
-    type: 3}
-  plusButton: {fileID: 0}
-  minusButton: {fileID: 0}
-  videoClips:
-  - {fileID: 32900000, guid: c0a0ca7940ba1f447baef1b87ff04220, type: 3}
-  - {fileID: 32900000, guid: 6685dc2c15990f449bdeaccf68628a0c, type: 3}
-  - {fileID: 32900000, guid: f7471ddf1225fe4438fcc9dc606f2023, type: 3}
-  - {fileID: 32900000, guid: 2a3f8207e89815043b4b15409a9ce935, type: 3}
-  - {fileID: 32900000, guid: fc4c8ddb336b60d46b3aaf00c00bc905, type: 3}
-  - {fileID: 32900000, guid: 601d2e045a78a53478b4fd6f4cefa38c, type: 3}
-  - {fileID: 32900000, guid: 38206b59d1dff644181d4cf037cc867f, type: 3}
-  - {fileID: 32900000, guid: eca266c901f5ae545aa019be5f8b9a79, type: 3}
-  - {fileID: 32900000, guid: 9726b7720729d424eacaacfe1d878957, type: 3}
-  - {fileID: 32900000, guid: 6cf019e5ad9011649b18c8d4ccd086d9, type: 3}
-  - {fileID: 32900000, guid: 4ed42126297623040a553f439ef0af50, type: 3}
-  - {fileID: 32900000, guid: 150bf57e08920c547a78ccd115f764ed, type: 3}
-  - {fileID: 32900000, guid: f9b21f3edc33f4e4b8bc7575f61686a2, type: 3}
-  - {fileID: 32900000, guid: e96f69b5214746846a8b28d6706f8aa5, type: 3}
-  - {fileID: 32900000, guid: 66ca2172fecbcfe4985cce3dd39a20a0, type: 3}
-  - {fileID: 32900000, guid: ec2d5a1032ff6f1488131fd333fe2cec, type: 3}
-  - {fileID: 32900000, guid: 24f3c8d14a6234e4e8f98c8bbbf7aacf, type: 3}
-  - {fileID: 32900000, guid: ffa0e65caea85954896e74a09749bfe9, type: 3}
-  - {fileID: 32900000, guid: b98ee76aa75b1e148b379512c48d936b, type: 3}
-  - {fileID: 32900000, guid: 48c78780651acdb40a1eeb67832cfd16, type: 3}
-  - {fileID: 32900000, guid: 1db6e6f20d8dcb04596b4af00462cdcf, type: 3}
 --- !u!328 &8110280572971916998
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -227,6 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a67fac6c9cdbe46b2ca92220bbb8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoContainer: {fileID: 0}
+  videoClip: {fileID: 32900000, guid: ca7a796f61db942418477f25a3042db2, type: 3}
   plusButton: {fileID: 0}
   minusButton: {fileID: 0}

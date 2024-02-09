@@ -14,6 +14,8 @@ public class Firestore : MonoBehaviour
     public TelefonWechselScript TelRef;
     public VideoController VideoRef;
     public ButterflyController ButterflyRef;
+
+    public CameraContainerController CameraRef;
     public static Firestore Instance;
 
     private void Awake()
@@ -65,6 +67,11 @@ public void SubscribeToDatabseElement()
             {
 
                 ButterflyRef.setVideo(Convert.ToInt32(item.Value));
+            }
+            if (CameraRef != null)
+            {
+
+                FotoRef.setImages(Convert.ToInt32(item.Value));
             }
 
         }
