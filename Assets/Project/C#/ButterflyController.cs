@@ -11,21 +11,22 @@ public class ButterflyController : MonoBehaviour
 
     private float currentSecond = 0f;
     private VideoPlayer videoPlayer;
-    private float videoLengthInSeconds = 29f; // Die Länge des Videos beträgt 29 Sekunden
-
+  
     void Start()
     {
         videoPlayer = gameObject.AddComponent<VideoPlayer>(); // VideoPlayer-Komponente hinzufügen
         videoPlayer.playOnAwake = false; // Das Video nicht automatisch abspielen
         videoPlayer.clip = videoClip; // Das Videoclip zuweisen
-        videoLengthInSeconds = (float)videoClip.length; // Die Länge des Videos in Sekunden erhalten
-        videoPlayer.time = videoLengthInSeconds;
+
 
         if (videoPlayer == null)
         {
             Debug.LogError("Kein VideoPlayer-Komponente gefunden.");
             return;
         }
+
+
+        Firestore.Instance.ButterflyRef = this;
 
         // Setze die Button-Handler
         plusButton = GameObject.FindGameObjectWithTag("plusButton").GetComponent<Button>();
@@ -41,18 +42,20 @@ public class ButterflyController : MonoBehaviour
 
     }
 
-    public void setVideo(float seconds)
+    public void setVideo(int mm)
     {
-        currentSecond = seconds;
-        if(currentSecond > seconds)
+       
+        if(currentSecond > mm)
         {
             PlayPreviousFrame();
         }
 
-        if (currentSecond < seconds)
+        if (currentSecond < mm)
         {
             PlayNextFrame();
         }
+
+        currentSecond = mm;
     }
 
     void PlayNextFrame()

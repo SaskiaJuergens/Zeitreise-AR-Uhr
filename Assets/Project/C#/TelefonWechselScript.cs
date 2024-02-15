@@ -38,8 +38,8 @@ public class TelefonWechselScript : MonoBehaviour
 
 
         // Setze die Button-Handler
-        plusButton = GameObject.FindGameObjectWithTag("plusButton").GetComponent<Button>();
-        minusButton = GameObject.FindGameObjectWithTag("minusButton").GetComponent<Button>();
+        //plusButton = GameObject.FindGameObjectWithTag("plusButton").GetComponent<Button>();
+        //minusButton = GameObject.FindGameObjectWithTag("minusButton").GetComponent<Button>();
 
         Debug.Log(plusButton);
         Debug.Log(plusButton.onClick);
@@ -51,7 +51,15 @@ public class TelefonWechselScript : MonoBehaviour
 
     public void setTelefon(int mm)
     {
-        aktuellesTelefonIndex = (mm >= 0 && mm < 60) ? mm / 5 : aktuellesTelefonIndex;
+        aktuellesTelefonIndex = (mm / 5) % 6; // Index von 0 bis 5 für jeden 5-Minuten-Intervall
+
+        // Wenn mm größer als 30 ist, Index um 6 reduzieren, damit der Indexzyklus von 0 bis 5 wieder von vorne beginnt
+        if (mm >= 30)
+        {
+            aktuellesTelefonIndex -= 6;
+            if (aktuellesTelefonIndex < 0)
+                aktuellesTelefonIndex += 6;
+        }
 
         //if (mm >= 0 && mm < 10)
         //{
